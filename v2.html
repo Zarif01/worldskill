@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Funny Face 2015</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/text.css"/>
+    <link rel="stylesheet" href="css/960.css"/>
+    <link rel="stylesheet" href="css/demo.css"/>
+    <link rel="stylesheet" href="css/party.css"/>
+    <link rel="stylesheet" type="text/css" href="JQuery/jquery-ui-1.11.2/jquery-ui.css">
+    <script src="JQuery/jquery-2.1.1.js"></script>
+    <script src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>
+</head>
+<style type="text/css"> 
+    .drop-area {
+        position: relative;
+        display: inline-block;
+        transition: transform 0.3s;
+        input[type="file"]{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+        }
+    }
+    .draging{
+        transform: scale(1.1);
+    }
+</style>
+<body>
+
+<div class="container_12">
+
+    <div class="grid_3">
+        <img src="images/LOGO_FunnyFace.png" alt="Funny Face 2015" class="logo"/>
+    </div>
+
+    <div class="center tabs" id="menu">
+        <p class="instructions">Play with the available acessories in your face.</p>
+
+        <div id="menu_1" class="menuitem" title="Glasses"></div>
+        <div id="menu_2" class="menuitem" title="Beards"></div>
+        <div id="menu_3" class="menuitem" title="Hats"></div>
+   
+
+    <div class="tab-content">
+        <div class="grid_12 submenu center" id="menu1">
+            <img src="images/accessories/GLASSES_1.png" alt="Glasses" class="accessories"/>
+            <img src="images/accessories/GLASSES_2.png" alt="Glasses" class="accessories"/>
+            <img src="images/accessories/GLASSES_3.png" alt="Glasses" class="accessories"/>
+        </div>
+
+        <div class="grid_12 submenu center" id="menu2">
+            <img src="images/accessories/BEARD_1.png" alt="Beards" class="accessories"/>
+            <img src="images/accessories/BEARD_2.png" alt="Beards" class="accessories"/>
+            <img src="images/accessories/BEARD_3.png" alt="Beards" class="accessories"/>
+            <img src="images/accessories/BEARD_4.png" alt="Beards" class="accessories"/>
+        </div>
+
+        <div class="grid_12 submenu center" id="menu3">
+            <img src="images/accessories/HAT_1.png" alt="Hats" class="accessories"/>
+            <img src="images/accessories/HAT_2.png" alt="Hats" class="accessories"/>
+            <img src="images/accessories/HAT_3.png" alt="Hats" class="accessories"/>
+            <img src="images/accessories/HAT_4.png" alt="Hats" class="accessories"/>
+        </div>
+    </div>
+ </div>
+    <div class="clear"></div>
+
+    <div class="grid_6 prefix_3 suffix_3">
+        <p class="drop">
+            <label for="input-file" class="drop-area" style="cursor:pointer;">
+                <input type="file" accept="image/jpeg" id="input-file" onchange="loadFile(event)" ondragover="drag()" ondrop="drop()">
+            Drop your face file here <br/>
+            <span class="attention">Only JPG file. Maximum 300 Kb.</span>
+        </label>
+        </p>
+    </div>
+
+    <div class="clear"></div>
+    
+    <div class="grid_2 prefix_3 suffix_2 center">Size</div>
+    <div class="grid_2 suffix_3 center">Rotate</div>
+    <div class="clear"></div>
+
+    <div class="grid_1 prefix_3">
+        <button id="plus" class="button">+</button>
+    </div>
+
+    <div class="grid_1 suffix_2">
+        <button id="minus" class="button">-</button>
+    </div>
+
+    <div class="grid_1">
+        <button id="left" class="button">Left</button>
+    </div>
+
+    <div class="grid_1 suffix_3">
+        <button id="right" class="button">Right</button>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="grid_6 prefix_3 suffix_3" id="selectable">
+        <div id="picture" class="picture" ondragover="allowDrop(event)">
+            <div id="progressbar"></div>
+            <img id="imageFace" class="picture">
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="grid_4 prefix_4 suffix_4 center">
+        <p>
+            <button id="save" class="button" onclick="javascript:savePicture();">Save Picture</button>
+        </p>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="grid_12">
+        <p>
+            Funny Face - 43º WorldSkills Competition - São Paulo - 2015. All rights reserved.
+        </p>
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+</body>
+<script type="text/javascript">
+    var loadFile = function (event) {
+        var file = document.querySelector("#input-file");
+        if(/\.(jpe?g)$/i.test(file.files[0].name)===true){
+         if (file.files[0].size<=300000) {
+                var image = document.getElementById('imageFace');
+                image.src = URL.createObjectURL(event.target.files[0]);
+                $( "#progressbar" ).progressbar("#destroy");
+        }
+        else{
+            alert("Maximum size is 300 Kb only");
+        }
+    }
+        else if (/\.(png|gif)$/i.test(file.files[0].name)===true) {
+            alert("WRONG IMAGE TYPE");
+        }
+        else{
+            alert("WRONG FILE EXTENSION TYPE!");
+        }
+       
+    };
+    function drag(){
+        document.getElementById('input-file').parentNode.className = 'draging drop-area';
+    }
+    function drop(){
+        document.getElementById('input-file').parentNode.className = 'drop-area';
+    }
+
+    $(function () {
+        // body...
+        var diagram= [];
+    $(".accessories").draggable({
+        revert: "invalid",
+        opacity: 0.5,
+        snap: ".picture",
+        stack: ".accessories",
+       
+    });
+    $(".picture").droppable({
+        accept: ".accessories",
+        tolerance: "fit",
+        hoverClass: "hover",
+    });
+    });
+
+    $('#selectable').selectable({
+selected: function( event, ui ) {
+$(".picture").css({
+"border" : "3px dotted"
+});
+ $("#plus, #minus, #left, #right").css({
+"pointer-events" : "none"
+});
+},
+});
+    var zoom = 1;
+$('#plus').on('click', function(){
+zoom += 0.1;
+$('#imageFace').css('transform', 'scale(' + zoom + ')');
+});
+$('#minus').on('click', function(){
+zoom -= 0.1;
+$('#imageFace').css('transform', 'scale(' + zoom + ')');
+});
+addEventListener("keypress", function(event) {
+if (event.key === "+") {
+event.preventDefault();
+document.getElementById("plus").click();
+}
+if (event.key === "-") {
+event.preventDefault();
+document.getElementById("minus").click();
+}
+});
+</script>
+</html>
