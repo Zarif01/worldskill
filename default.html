@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Funny Face 2015</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/text.css"/>
+    <link rel="stylesheet" href="css/960.css"/>
+    <link rel="stylesheet" href="css/demo.css"/>
+    <link rel="stylesheet" href="css/party.css"/>
+    <link rel="stylesheet" href="css/progressbar.css"/>
+
+</head>
+
+<body id="hero">
+
+<div class="container_12">
+
+    <div class="grid_3">
+        <img src="images/LOGO_FunnyFace.png" alt="Funny Face 2015" class="logo"/>
+    </div>
+
+    <div class="grid_9 center tabs">
+        <p class="instructions">Play with the available accessories on your face.</p>
+
+        <div id="menu_1" class="menuitem" title="Glasses"></div>
+        <div id="menu_2" class="menuitem" title="Beards"></div>
+        <div id="menu_3" class="menuitem" title="Hats"></div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="tab-content" >
+        <div id="accessories">
+        <div class="grid_12 submenu center" >
+            <img src="images/accessories/GLASSES_1.png" alt="Glasses" class="accessories"  id="glasses" draggable="true"/>
+            <img src="images/accessories/GLASSES_2.png" alt="Glasses" class="accessories"  id="glasses" draggable="true"/>
+            <img src="images/accessories/GLASSES_3.png" alt="Glasses" class="accessories"  id="glasses" draggable="true"/>
+        </div>
+
+        <div class="grid_12 submenu center" >
+            <img src="images/accessories/BEARD_1.png" alt="Beards" class="accessories"  id="beards" draggable="true"/>
+            <img src="images/accessories/BEARD_2.png" alt="Beards" class="accessories"  id="beards" draggable="true"/>
+            <img src="images/accessories/BEARD_3.png" alt="Beards" class="accessories"  id="beards" draggable="true"/>
+            <img src="images/accessories/BEARD_4.png" alt="Beards" class="accessories" id="beards" draggable="true"/>
+        </div>
+
+        <div class="grid_12 submenu center" >
+            <img src="images/accessories/HAT_1.png" alt="Hats" class="accessories"  id="hats" draggable="true"/>
+            <img src="images/accessories/HAT_2.png" alt="Hats" class="accessories"  id="hats" draggable="true"/>
+            <img src="images/accessories/HAT_3.png" alt="Hats" class="accessories" id="hats" draggable="true"/>
+            <img src="images/accessories/HAT_4.png" alt="Hats" class="accessories"  id="hats" draggable="true"/>
+        </div>
+    </div>
+</div>
+    <div class="clear"></div>
+
+    <div class="grid_6 prefix_3 suffix_3" >
+        <p class="drop" >
+            <label for="input-file" id="drop-area">
+                <input type="file" accept="image/jpeg" id="input-file" hidden>
+                Drop your face file here <br/>
+                <span class="attention">Only JPG file. Maximum 300 Kb.</span>
+            </label>
+        </p>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="grid_2 prefix_3 suffix_2 center">Size</div>
+    <div class="grid_2 suffix_3 center">Rotate</div>
+    <div class="clear"></div>
+
+    <div class="grid_1 prefix_3">
+        <button id="increase-size" class="button">+</button>
+    </div>
+
+    <div class="grid_1 suffix_2">
+        <button id="decrease-size" class="button">-</button>
+    </div>
+
+    <div class="grid_1">
+        <button id="left" class="button">Left</button>
+    </div>
+
+    <div class="grid_1 suffix_3">
+        <button id="right" class="button">Right</button>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="grid_6 prefix_3 suffix_3" id="grid">
+        <div id="img-view" class="picture">
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="progress-bar" id="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+
+    <div class="grid_4 prefix_4 suffix_4 center">
+        <p>
+            <button id="save-button" class="button">Save Picture</button>
+        </p>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="grid_12">
+        <p>
+            Funny Face - 43º WorldSkills Competition - São Paulo - 2015. All rights reserved.
+        </p>
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
+
+<script src="script2.js"></script>
+
+</body>
+</html>
